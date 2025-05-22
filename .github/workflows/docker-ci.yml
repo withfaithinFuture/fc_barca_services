@@ -28,6 +28,9 @@ jobs:
           echo "Waiting for PostgreSQL to be ready..."
           docker compose exec -T db bash -c "until pg_isready -U barca_user; do sleep 1; done"
 
+      - name: Show logs for feedback_service
+        run: docker compose logs feedback_service
+
       - name: Run migrations
         run: |
           docker compose exec -T auth_service python manage.py migrate
