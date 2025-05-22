@@ -21,25 +21,25 @@ jobs:
           echo "${{ secrets.FEEDBACK_ENV }}" > feedback_service/.env
 
       - name: Set up Docker Compose
-        run: docker-compose -f docker-compose.yml up -d --build
+        run: docker compose -f docker compose.yml up -d --build
 
       - name: Wait for DB to be ready
         run: |
           echo "Waiting for PostgreSQL to be ready..."
-          docker-compose exec -T db bash -c "until pg_isready -U barca_user; do sleep 1; done"
+          docker compose exec -T db bash -c "until pg_isready -U barca_user; do sleep 1; done"
 
       - name: Run migrations
         run: |
-          docker-compose exec -T auth_service python manage.py migrate
-          docker-compose exec -T content_service python manage.py migrate
-          docker-compose exec -T feedback_service python manage.py migrate
+          docker compose exec -T auth_service python manage.py migrate
+          docker compose exec -T content_service python manage.py migrate
+          docker compose exec -T feedback_service python manage.py migrate
 
       - name: Run tests
         run: |
-          docker-compose exec -T auth_service python manage.py test
-          docker-compose exec -T content_service python manage.py test
-          docker-compose exec -T feedback_service python manage.py test
+          docker compose exec -T auth_service python manage.py test
+          docker compose exec -T content_service python manage.py test
+          docker compose exec -T feedback_service python manage.py test
 
       - name: Tear down containers
         if: always()
-        run: docker-compose down -v
+        run: docker compose down -v
