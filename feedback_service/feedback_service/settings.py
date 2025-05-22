@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'feedback_service.wsgi.application'
 
-TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
+TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_ID')
 TELEGRAM_CHAT_ID = config('TELEGRAM_BOT_ID')
 
 
