@@ -29,7 +29,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 SECRET_KEY = config('SECRET_KEY')
 
 
-ALLOWED_HOSTS = ['*']
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'auth_service', 'content_service']
+
 
 
 INSTALLED_APPS = [
