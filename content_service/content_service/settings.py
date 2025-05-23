@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'auth_service', 'content_service']
 
 
 
@@ -144,9 +144,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'auth_service', 'content_service']
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
