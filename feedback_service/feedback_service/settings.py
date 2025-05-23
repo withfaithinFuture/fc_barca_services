@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'auth_service', 'content_service']
 
 
 
@@ -75,8 +75,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'feedback_service.wsgi.application'
 
-TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_ID')
-TELEGRAM_CHAT_ID = config('TELEGRAM_BOT_ID')
+TELEGRAM_BOT_ID = config('TELEGRAM_BOT_ID')
+TELEGRAM_CHAT_ID = config('TELEGRAM_CHAT_ID')
 
 
 # Database

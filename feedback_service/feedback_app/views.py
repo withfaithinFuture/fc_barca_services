@@ -24,7 +24,7 @@ def feedback_view(request):
                 f"Сообщение: {message}"
             )
 
-            url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_TOKEN}/sendMessage"
+            url = f"https://api.telegram.org/bot{settings.TELEGRAM_BOT_ID}/sendMessage"
             payload = {
                 'chat_id': settings.TELEGRAM_CHAT_ID,
                 'text': telegram_message,
